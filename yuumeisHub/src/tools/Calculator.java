@@ -100,7 +100,7 @@ public class Calculator {
 	}
 	public void divide()
 	{
-		if(numbers.size()>0) 
+		if(numbers.size()>0 && numbers.size()<3) 
 		{
 			if(numbers.getLast() != 0 )
 			{
@@ -115,12 +115,16 @@ public class Calculator {
 			
 			
 		}
+		else
+		{
+			throw new RuntimeException("Cannot calculate with more than 2 numbers, Gomen, Goshujin-sama~");
+		}
 		
 	}
 	public void multiply()
 	{
 			
-		if(numbers.size()>0)
+		if(numbers.size()>0 && numbers.size()<3)
 		{
 			double result;
 			
@@ -133,6 +137,10 @@ public class Calculator {
 			result = numbers.get(0) * numbers.get(1);
 			System.out.println(numbers.get(0)+" * "+numbers.get(1)+" = "+result);
 			numbers.removeAll(numbers);
+		}
+		else
+		{
+			throw new RuntimeException("Cannot calculate with more than 2 numbers, Gomen, Goshujin-sama~");
 		}
 	}
 	

@@ -1,0 +1,27 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '23'  # ou a versão usada por seu projeto
+
+    - name: Compile
+      run: javac -d bin src/*.java
+
+    - name: Execute
+      run: java -cp bin Main

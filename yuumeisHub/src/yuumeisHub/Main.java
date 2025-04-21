@@ -1,7 +1,9 @@
 package yuumeisHub;
 
-import java.util.*;
+import java.util.Scanner;
+
 import tools.Calculator;
+import tools.CoinConverter;
 
 ///
 /// Edgerunners: Girl on fire ep6 - 17:30s
@@ -19,6 +21,7 @@ public class Main {
 		boolean linkStarto = true;
 		Scanner input = new Scanner(System.in);
 		Calculator makima = new Calculator();
+		CoinConverter nami = new CoinConverter();
 		
 		while(linkStarto) {
 			
@@ -150,11 +153,55 @@ public class Main {
 									
 									break;
 									
-								/// Coin Converter
+								/// Coin Converter R$ to dolar,euro or Yen
 								case 2:
 								{
+									System.out.println("Welcome, Goshujin-sama. Please, may I assist you in choosing the currency you wish to convert?");
+									System.out.println("Simply select the desired one, and I shall handle the rest with care and precision.");
+									System.out.println("Goshujin-sama, the conversion will always be from Brazilian Real to your chosen currency.");
+									
+									System.out.println("1.Euro, 2.Dolar, 3.Yen");
+									
+									try {
+										int goshujinConverter = input.nextInt();
+										if(goshujinConverter <= 0 || goshujinConverter >3)
+										{
+											throw new RuntimeException("Goshujin-sama, invalid option, please try again.");
+										}
+											
+										switch(goshujinConverter) {
+											//Euro
+											case 1:
+												System.out.println("Goshujin-sama, please insert the value in Euro:");
+												double euro = input.nextDouble();
+												nami.euroConverter(euro);
+												break;
+												
+											//Dolar
+											case 2:
+												System.out.println("Goshujin-sama, please insert the value in Dolar:");
+												double dolar = input.nextDouble();
+												nami.dolarConverter(dolar);
+												break;
+												
+											//Yen
+											case 3:
+												System.out.println("Goshujin-sama, please insert the value in Yen:");
+												double yen = input.nextDouble();
+												nami.yenConverter(yen);
+												break;
+										}
+										
+										
+									}
+									catch(Exception e) {
+										System.out.println(e.getMessage());
+									}
+									
+									
 									break;
 								}
+								/// Measurement converter
 								case 3:
 								{
 									break;
