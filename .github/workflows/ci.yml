@@ -23,7 +23,7 @@ jobs:
 
     - name: Compile
       run: |
-        javac yuumeisHub/Main.java
+        javac -d . yuumeisHub/src/yuumeisHub/Main.java
 
     - name: Execute
       run: |
