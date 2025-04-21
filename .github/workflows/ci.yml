@@ -23,8 +23,9 @@ jobs:
 
     - name: Compile
       run: |
-        find yuumeisHub/src/yuumeisHub/ -name "*.java" > sources.txt
-        javac -d . @sources.txt
+        cd yuumeisHub/src
+        find . -name "*.java" > sources.txt
+        javac -d ../classes @sources.txt
 
 
     - name: Execute
