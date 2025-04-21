@@ -19,7 +19,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
-        java-version: '17'  # ou altere para a versão usada no Eclipse
+        java-version: '23'  # ou altere para a versão usada no Eclipse
 
     - name: Compile
       run: |
