@@ -12,16 +12,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Clone
+      uses: actions/checkout@v3
 
-    - name: Configure Java
+    - name: Install
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
-        java-version: '23'  # ou a versão usada por seu projeto
+        java-version: '17'  # ou altere para a versão usada no Eclipse
 
     - name: Compile
-      run: javac -d bin src/*.java
+      run: |
+        javac yuumeisHub/Main.java
 
     - name: Execute
-      run: java -cp bin Main
+      run: |
+        java -cp yuumeisHub Main
