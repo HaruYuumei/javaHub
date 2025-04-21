@@ -30,4 +30,4 @@ jobs:
 
     - name: Execute
       run: |
-        java -cp yuumeisHub/classes yuumeisHub.Main
+        java -cp yuumeisHub/classes yuumeisHub Main
