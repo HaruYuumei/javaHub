@@ -1,4 +1,4 @@
-name: Java CI para Eclipse
+name: Java CI
 
 on:
   push:
@@ -14,14 +14,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Configurar Java
+    - name: Configure Java
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
         java-version: '23'  # ou a versão usada por seu projeto
 
-    - name: Compilar projeto
+    - name: Compile
       run: javac -d bin src/*.java
 
-    - name: Executar
+    - name: Execute
       run: java -cp bin Main
