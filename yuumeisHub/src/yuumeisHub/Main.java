@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import tools.Calculator;
 import tools.CoinConverter;
+import tools.MeasureConverter;
 
 ///
 /// Edgerunners: Girl on fire ep6 - 17:30s
@@ -22,6 +23,7 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		Calculator makima = new Calculator();
 		CoinConverter nami = new CoinConverter();
+		MeasureConverter kitagawaMarin = new MeasureConverter();
 		
 		while(linkStarto) {
 			
@@ -50,7 +52,7 @@ public class Main {
 					case 1:
 						
 						System.out.println("Welcome to the Tools menu, goshujin-sama~, Which one shall I ready for you first?");
-						System.out.println("0.Go Back, 1.Simple Calculator, 2.Coin Converter");
+						System.out.println("0.Go Back, 1.Simple Calculator, 2.Coin Converter. 3.Measurements");
 						try {
 							int goshujinSecondChoice = input.nextInt();	
 							
@@ -204,6 +206,61 @@ public class Main {
 								/// Measurement converter
 								case 3:
 								{
+									
+									System.out.println("Welcome, Goshujin-sama. Might I now guide you to the realm of measurements?");
+									System.out.println("With a gentle touch, I shall assist you in converting units with utmost grace and accuracy.");
+									System.out.println("Simply select the measurement type, and leave the rest to your ever-loyal maid.");
+									
+									System.out.println("1.Inches to Cm, 2.Miles to KM, 3.Ounces to grams, 4.Pounds to Kilograms, 5.Liters to Gallons");
+									try {
+										int goshujinMeasures = input.nextInt();
+										if(goshujinMeasures <= 0 || goshujinMeasures >5)
+										{
+											throw new RuntimeException("Goshujin-sama, invalid option, please try again.");
+										}
+										
+										switch(goshujinMeasures) {
+										
+										//inches to Cms
+										case 1:
+											System.out.println("Goshujin-sama, please type in the Value in Inches:");
+											double inches = input.nextDouble();
+											kitagawaMarin.inchestoCentimeters(inches);
+											break;
+										//MIles to KM
+										case 2:
+											System.out.println("Goshujin-sama, please type in the Value in miles:");
+											double miles = input.nextDouble();
+											kitagawaMarin.milestokilometers(miles);
+											break;
+										//Ounces to grams
+										case 3:
+											System.out.println("Goshujin-sama, please type in the Value in Ounces:");
+											double ounce = input.nextDouble();
+											kitagawaMarin.ouncestoGrams(ounce);
+											break;
+										//Pounds to Kilograms
+										case 4:
+											System.out.println("Goshujin-sama, please type in the Value in Pound:");
+											double pounds = input.nextDouble();
+											kitagawaMarin.poundtoKg(pounds);
+											break;
+										//Liters to Gallons
+										case 5:
+											System.out.println("Goshujin-sama, please type in the Value in Liters:");
+											double liter = input.nextDouble();
+											kitagawaMarin.literstoGallons(liter);
+											break;
+										
+										}
+
+									}
+									catch(Exception e) {
+										System.out.println(e.getMessage());
+									}
+									
+										
+									
 									break;
 								}
 								case 4:
