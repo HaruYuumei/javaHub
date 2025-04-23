@@ -5,6 +5,7 @@ import java.util.Scanner;
 import tools.Calculator;
 import tools.CoinConverter;
 import tools.MeasureConverter;
+import tools.Pomodoro;
 
 ///
 /// Edgerunners: Girl on fire ep6 - 17:30s
@@ -24,6 +25,7 @@ public class Main {
 		Calculator makima = new Calculator();
 		CoinConverter nami = new CoinConverter();
 		MeasureConverter kitagawaMarin = new MeasureConverter();
+		Pomodoro nagatoroHayase = new Pomodoro();
 		
 		while(linkStarto) {
 			
@@ -52,7 +54,7 @@ public class Main {
 					case 1:
 						
 						System.out.println("Welcome to the Tools menu, goshujin-sama~, Which one shall I ready for you first?");
-						System.out.println("0.Go Back, 1.Simple Calculator, 2.Coin Converter. 3.Measurements");
+						System.out.println("0.Go Back, 1.Simple Calculator, 2.Coin Converter. 3.Measurements, 4.Pomodoro Timer");
 						try {
 							int goshujinSecondChoice = input.nextInt();	
 							
@@ -263,8 +265,35 @@ public class Main {
 									
 									break;
 								}
+								
+								//Pomodoro Timer
 								case 4:
 								{
+									System.out.println("Goshujin-sama, would you like to start a timer to study?");
+									System.out.println("1.Yes, 2.no (back)");
+									try{
+										int goshujinTimer = input.nextInt();
+										
+										if(goshujinTimer < 0 || goshujinTimer > 12)
+										{
+											throw new RuntimeException("Goshujin-sama, this is not a proper option, please type again");
+										}
+										
+										switch(goshujinTimer) {
+										case 1:
+											System.out.println("Goshujin-sama, would you like to study for how many minutes?");
+											int goshujinStudy = input.nextInt();
+											nagatoroHayase.startCounting(goshujinStudy);
+											break;
+										case 2:
+											System.out.println("Right, Goshujin-sama.");
+											break;
+										}
+									}
+									catch(Exception e)
+									{
+										System.out.println(e.getMessage());
+									}
 									break;
 								}
 							}
