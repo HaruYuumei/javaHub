@@ -5,6 +5,7 @@ import java.util.Scanner;
 import tools.Calculator;
 import tools.CoinConverter;
 import tools.MeasureConverter;
+import tools.PasswordCreator;
 import tools.Pomodoro;
 
 ///
@@ -26,6 +27,7 @@ public class Main {
 		CoinConverter nami = new CoinConverter();
 		MeasureConverter kitagawaMarin = new MeasureConverter();
 		Pomodoro nagatoroHayase = new Pomodoro();
+		PasswordCreator ranpoKitan = new PasswordCreator();
 		
 		while(linkStarto) {
 			
@@ -55,6 +57,7 @@ public class Main {
 						
 						System.out.println("Welcome to the Tools menu, goshujin-sama~, Which one shall I ready for you first?");
 						System.out.println("0.Go Back, 1.Simple Calculator, 2.Coin Converter. 3.Measurements, 4.Pomodoro Timer");
+						System.out.println("5.Password, ");
 						try {
 							int goshujinSecondChoice = input.nextInt();	
 							
@@ -296,6 +299,58 @@ public class Main {
 									}
 									break;
 								}
+								//Password generator
+								case 5:
+									int goshujinSize;
+									System.out.println("Goshujin-sama, in need of a new Password?");
+									System.out.println("I'll gladly create a new one for you Goshujin-sama.");
+									System.out.println("How would you like your password to be?");
+									System.out.println("1.Complete, 2.Letters + numbers, 3.Just letters, 4. Just numbers");
+									
+									try {
+										int goshujinRanpo = input.nextInt();
+										
+										if(goshujinRanpo < 1 || goshujinRanpo > 4) {
+											throw new RuntimeException("Goshujin, this is not a option, please try again");
+										}
+										else
+										{
+											switch (goshujinRanpo) {
+											case 1:
+												System.out.println("Perfect Goshujin-sama, as expected.");
+												System.out.println("How many characters would you like in your password, Goshujin-sama?");
+												goshujinSize = input.nextInt();
+												ranpoKitan.generateCompletePassword(goshujinSize);
+												break;
+											case 2:
+												System.out.println("Goshujin-sama, Lettes and numbers only right?");
+												System.out.println("How many characters would you like in your password, Goshujin-sama?");
+												goshujinSize = input.nextInt();
+												ranpoKitan.generateLNPassword(goshujinSize);
+												break;
+											case 3:
+												System.out.println("Goshujin-sama, Lettes only right?");
+												System.out.println("How many characters would you like in your password, Goshujin-sama?");
+												goshujinSize = input.nextInt();
+												ranpoKitan.generateLPassword(goshujinSize);
+												break;
+											case 4:
+												System.out.println("Goshujin-sama, numbers only right?");
+												System.out.println("How many characters would you like in your password, Goshujin-sama?");
+												goshujinSize = input.nextInt();
+												ranpoKitan.generateNPassword(goshujinSize);
+												break;
+											}
+										}
+										
+										
+									}
+									catch(Exception e)
+									{
+										System.out.println(e.getMessage());
+									}
+								
+									break;
 							}
 							
 							
